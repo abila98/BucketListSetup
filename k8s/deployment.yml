@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bucketlist-app
+spec:
+  replicas: 2  # Number of instances (pods) to run
+  selector:
+    matchLabels:
+      app: bucketlist-app
+  template:
+    metadata:
+      labels:
+        app: bucketlist-app
+    spec:
+      containers:
+        - name: bucketlist-app
+          image: 730335274738.dkr.ecr.us-west-1.amazonaws.com/bucketlist:latest
+          ports:
+            - containerPort: 8080  
+
